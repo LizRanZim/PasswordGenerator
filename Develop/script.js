@@ -27,23 +27,23 @@ function getPasswordOpts() {
   //ask the prompts to the user in here
 
   //asks the usere for length of password
-  var length = parseInt(prompt('Length of password?'));
+  var length = parseInt(prompt('How many characters do you want the password to be? Enter a number between 8 and 128:'));
 
   //alerts user if password length is too short
   if (length < 8) {
-    alert('Password length must be more than 8 characters')
+    alert('Password length must be more than 8 characters.')
     return;
   };
 
   //alerts user if password length is too long
   if (length > 128) {
-    alert('Password length must be less than 128 characters')
+    alert('Password length must be less than 128 characters.')
     return;
   };
 
   //asks user to enter a number if they have entered a letter
   if (isNaN(length) === true) {
-    alert('enter a integer');
+    alert('Enter a number');
     return;
   }
 
@@ -70,7 +70,7 @@ function getPasswordOpts() {
 
   // stores the users choices about which options they have chosen
   var objectOptions = {
-    length: length,
+    passwordLength: length,
     hasSpecial: specialChar,
     hasNumeric: numericlChar,
     hasLower: lowerChar,
@@ -99,13 +99,16 @@ function generate_Password() {
     possibleArr = possibleArr.concat(lowerArr)
     var index = Math.floor(Math.random() * lowerArr.length)
     guarantee.push(lowerArr[index])
+    console.log(possibleArr)
   }
+
 
   // If user selected to have an upper case character, below code randomly generates an index position to choose an upper case value from the upperArr
   if (pwordOptions.hasUpper) {
     possibleArr = possibleArr.concat(upperArr)
     var index = Math.floor(Math.random() * upperArr.length)
     guarantee.push(upperArr[index])
+    console.log(possibleArr)
   }
 
   // If user selected to have a special character, below code randomly generates an index position to choose a special character value from the specialArr
@@ -113,18 +116,20 @@ function generate_Password() {
     possibleArr = possibleArr.concat(specialArr)
     var index = Math.floor(Math.random() * specialArr.length)
     guarantee.push(specialArr[index])
+    console.log(possibleArr)
   }
 
   // If user selected to have a number, below code randomly generates an index position to choose a number from the numericArr
-  if (pwordOptions.numericArr) {
+  if (pwordOptions.hasNumeric) {
     possibleArr = possibleArr.concat(numericArr)
     var index = Math.floor(Math.random() * numericArr.length)
     guarantee.push(numericArr[index])
+    console.log(possibleArr)
   }
   console.log(possibleArr)
+console.log(pwordOptions.passwordLength)
 
-
-  for (var i = 0; i < pwordOptions.length; i++) {
+  for (var i = 0; i < pwordOptions.passwordLength; i++) {
 
 
     var randomNum = Math.floor(Math.random() * possibleArr.length)
@@ -146,3 +151,8 @@ function generate_Password() {
 }
 
 
+//find a function that calls a variable instead of repeating the code 4x in the ifs
+
+//function that has 2 arguments, pass in the entire 
+
+// var pwordOptions = getPasswordOpts(); create a function that calls array variables
