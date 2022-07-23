@@ -12,8 +12,8 @@ The following animated .gif shows the application's appearance and functionality
 
 ## Link to deployed application
 
-<a href="https://lizranzim.github.io/LizRZPortfolio/">
-https://lizranzim.github.io/LizRZPortfolio/</a>
+<a href="https://lizranzim.github.io/PasswordGenerator/">
+https://lizranzim.github.io/PasswordGenerator/</a>
 
 ## Notes
 A tutor helped me with building the functions code and declaring the variables.
