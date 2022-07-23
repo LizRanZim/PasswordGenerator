@@ -1,4 +1,4 @@
-## LizRZPortfolio
+## PasswordGenerator
 
 The name of the application is PasswordGenerator
 
