@@ -104,7 +104,7 @@ function generate_Password() {
   // If user selected to have an upper case character, below code randomly generates an index position to choose an upper case value from the upperArr
   if (pwordOptions.hasUpper) {
     possibleArr = possibleArr.concat(upperArr)
-    var index = Math.floor(Math.ranadddom() * upperArr.length)
+    var index = Math.floor(Math.random() * upperArr.length)
     guarantee.push(upperArr[index])
     console.log(possibleArr)
   }
