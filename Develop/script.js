@@ -13,25 +13,22 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generate_Password();
   var passwordText = document.querySelector("#password");
-
   passwordText.value = password;
-
 }
 
-// Add event listener to generate button test
+// Add event listener to generate button test, runs the writePassword function when button is clicked
 generateBtn.addEventListener("click", writePassword);
 
 
-
+//ask the prompts to the user in this section
 function getPasswordOpts() {
-  //ask the prompts to the user in here
 
-  //asks the usere for length of password
+  //asks the user for length of password
   var length = parseInt(prompt('How many characters do you want the password to be? Enter a number between 8 and 128:'));
 
   //alerts user if password length is too short
   if (length < 8) {
-    alert('Password length must be more than 8 characters.')
+    alert('Password length must be more than 8 characters. Click the "Generate Password" button to start over.')
     return;
   };
 
@@ -43,28 +40,28 @@ function getPasswordOpts() {
 
   //asks user to enter a number if they have entered a letter
   if (isNaN(length) === true) {
-    alert('Enter a number');
+    alert('Please enter a number. Click the "Generate Password" button to begin again.');
     return;
   }
 
   //asks the user to click ok or cancel for special characters, numeric characters, lower case characters, upper case characters
-  var specialChar = confirm('Click ok to include special char');
+  var specialChar = confirm('Click ok to include special characters or click cancel for no special characters.');
 
-  var numericlChar = confirm('Click ok to include numeric char');
+  var numericChar = confirm('Click ok to include numeric characters or click cancel for no numeric characters.');
 
-  var lowerChar = confirm('Click ok to include lower char');
+  var lowerChar = confirm('Click ok to include lower case characters, or click cancel for no lower case characters.');
 
-  var upperChar = confirm('Click ok to include upper char');
+  var upperChar = confirm('Click ok to include upper case characters, or click cancel for no upper case characters.');
 
-  //console log left in to test if above is working
-  console.log(length, specialChar, numericlChar, lowerChar, upperChar)
+  //console log left in to test if above is working, console logs true or false for each option the user chose
+  console.log(length, specialChar, numericChar, lowerChar, upperChar)
 
   //asks user to choose at least one option of special characters, numeric characters, lower case characters, upper case characters 
   if (specialChar === false &&
-    numericlChar === false &&
+    numericChar === false &&
     lowerChar === false &&
     upperChar === false) {
-    alert('must select one option');
+    alert('Please select at least one option.');
     return;
   };
 
@@ -72,7 +69,7 @@ function getPasswordOpts() {
   var objectOptions = {
     passwordLength: length,
     hasSpecial: specialChar,
-    hasNumeric: numericlChar,
+    hasNumeric: numericChar,
     hasLower: lowerChar,
     hasUpper: upperChar
 
@@ -83,9 +80,10 @@ function getPasswordOpts() {
 
 }
 
-
+// runs function to create password and guarantee that the values chosen will be included in the password
 function generate_Password() {
   var pwordOptions = getPasswordOpts();
+
   //console log left in to test if above is working
   console.log(pwordOptions);
 
@@ -106,7 +104,7 @@ function generate_Password() {
   // If user selected to have an upper case character, below code randomly generates an index position to choose an upper case value from the upperArr
   if (pwordOptions.hasUpper) {
     possibleArr = possibleArr.concat(upperArr)
-    var index = Math.floor(Math.random() * upperArr.length)
+    var index = Math.floor(Math.ranadddom() * upperArr.length)
     guarantee.push(upperArr[index])
     console.log(possibleArr)
   }
@@ -126,36 +124,37 @@ function generate_Password() {
     guarantee.push(numericArr[index])
     console.log(possibleArr)
   }
+
+  // console logs the possible array and the pasword length
   console.log(possibleArr)
   console.log(pwordOptions.passwordLength)
 
+  // runs a for loop to create randomNum to choose the values from the array randomly
   for (var i = 0; i < pwordOptions.passwordLength; i++) {
-
-
     var randomNum = Math.floor(Math.random() * possibleArr.length)
 
+
     // console.log(possibleArr[randomNum])
+
+    // adds the current value of possible array to the result
     result.push(possibleArr[randomNum])
 
 
   }
   console.log(guarantee)
+
+  // runs a for loop to guarantee a value from the chosen array is included in the result
   for (var i = 0; i < guarantee.length; i++) {
     result[i] = guarantee[i];
 
   }
   console.log(result.join(''))
 
+  // returns the final results of the function generate_Password
   return result.join('')
 
 }
 
 // To do:
 
-// Clean up question language
-
 //find a function that calls a variable instead of repeating the code 4x in the ifs
-
-//function that has 2 arguments, pass in the entire function
-
-// var pwordOptions = getPasswordOpts(); create a function that calls array variables
