@@ -8,7 +8,7 @@ The application is a password generator that asks the user if they want a passwo
 
 The following animated .gif shows the application's appearance and functionality on a desktop.
 
-<img src="./assets/03-javascript-homework-demo.png">
+<img src="./Assets/03-javascript-homework-demo.png">
 
 ## Link to deployed application
 
