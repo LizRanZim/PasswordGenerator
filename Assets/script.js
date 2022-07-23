@@ -155,6 +155,6 @@ function generate_Password() {
 
 }
 
-// To do:
+// Internal note for developer to do:
 
-//find a function that calls a variable instead of repeating the code 4x in the ifs
+//find a function that calls a variable instead of repeating the code 4x in the ifs - will need help with this.
