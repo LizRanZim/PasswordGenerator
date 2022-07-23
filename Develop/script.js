@@ -18,7 +18,7 @@ function writePassword() {
 
 }
 
-// Add event listener to generate button
+// Add event listener to generate button test
 generateBtn.addEventListener("click", writePassword);
 
 
@@ -127,7 +127,7 @@ function generate_Password() {
     console.log(possibleArr)
   }
   console.log(possibleArr)
-console.log(pwordOptions.passwordLength)
+  console.log(pwordOptions.passwordLength)
 
   for (var i = 0; i < pwordOptions.passwordLength; i++) {
 
@@ -150,9 +150,12 @@ console.log(pwordOptions.passwordLength)
 
 }
 
+// To do:
+
+// Clean up question language
 
 //find a function that calls a variable instead of repeating the code 4x in the ifs
 
-//function that has 2 arguments, pass in the entire 
+//function that has 2 arguments, pass in the entire function
 
 // var pwordOptions = getPasswordOpts(); create a function that calls array variables
